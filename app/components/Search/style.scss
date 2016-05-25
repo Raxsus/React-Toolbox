@@ -1,8 +1,10 @@
-@import "~react-toolbox/lib/base";
-@import "~react-toolbox/lib/app_bar/config";
-@import "~react-toolbox/lib/button/config";
+@import "../../../node_modules/react-toolbox/lib/_base";
+@import "../../../node_modules/react-toolbox/lib/app_bar/_config";
+@import "../../../node_modules/react-toolbox/lib/button/_config";
 
 $title-font-size: 1.8 * $unit;
+
+$button-size: 40px;
 
 // You need to boost priority more than the minimum since
 // your build comes with React Toolbox's and we can't
@@ -18,8 +20,17 @@ $title-font-size: 1.8 * $unit;
 
   > .button {
     position: absolute;
-    top: $appbar-height - ($button-floating-height / 2);
+    top: ($appbar-height - $button-floating-height) / 2;
     right: $button-floating-height / 2;
+    z-index: $z-index-higher;
+    width: $button-size;
+    height: $button-size;
+  }
+
+  > .menubutton{
+    position: absolute;
+    top: ($appbar-height - $button-floating-height) / 2;
+    left: $button-floating-height / 2;
     z-index: $z-index-higher;
   }
 }

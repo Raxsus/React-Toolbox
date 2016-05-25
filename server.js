@@ -25,5 +25,5 @@ app.listen(8080, '0.0.0.0', (err) => {
     return;
   }
 
-  console.log('Listening at http://0.0.0.0:8080');
+  console.log('Listening at http://localhost:8080');
 });
