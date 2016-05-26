@@ -10,27 +10,7 @@ $button-size: 40px;
 // your build comes with React Toolbox's and we can't
 // ensure the order. You can either set a wrapper or target
 // React Toolbox data attributes to boost
-.appbar {
+.searchfield {
   background-color: transparent;
-  > .title {
-    font-size: $title-font-size;
-    font-weight: $font-weight-bold;
-    position: relative;
-  }
-
-  > .button {
-    position: absolute;
-    top: ($appbar-height - $button-floating-height) / 2;
-    right: $button-floating-height / 2;
-    z-index: $z-index-higher;
-    width: $button-size;
-    height: $button-size;
-  }
-
-  > .menubutton{
-    position: absolute;
-    top: ($appbar-height - $button-floating-height) / 2;
-    left: $button-floating-height / 2;
-    z-index: $z-index-higher;
-  }
+  border: none;
 }

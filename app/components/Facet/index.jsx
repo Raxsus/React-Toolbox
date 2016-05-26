@@ -20,12 +20,7 @@ class Facet extends React.Component {
 
     render () {
         return (
-            <Dropdown
-                auto
-                onChange={this.handleChange}
-                source={countries}
-                label="Categories"
-            />
+            <div className={this.props.className}>{this.props.label}</div>
         );
     }
 }
