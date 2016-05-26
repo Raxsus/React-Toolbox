@@ -1,6 +1,7 @@
 @import "../../../node_modules/react-toolbox/lib/_base";
 @import "../../../node_modules/react-toolbox/lib/app_bar/_config";
 @import "../../../node_modules/react-toolbox/lib/button/_config";
+@import "../_config";
 
 $title-font-size: 1.8 * $unit;
 
@@ -10,7 +11,25 @@ $button-size: 40px;
 // your build comes with React Toolbox's and we can't
 // ensure the order. You can either set a wrapper or target
 // React Toolbox data attributes to boost
-.searchfield {
-  background-color: transparent;
+.searchField {
+  display: inline-block;
+  line-height: 40px;
+  font-size: 14px;
+  position: relative;
+}
+
+.searchInput {
+  background-color: #fff;
   border: none;
+  margin-left: 40px;
+  width:400px;
+  height: 40px;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  margin-top: -12px;
+  color:$header_text_color;
 }

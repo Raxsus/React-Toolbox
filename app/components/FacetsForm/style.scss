@@ -1,0 +1,11 @@
+@import "../../../node_modules/react-toolbox/lib/_base";
+@import "../../../node_modules/react-toolbox/lib/dropdown/_config";
+@import "../_config";
+
+.facetsForm {
+  display: inline-block;
+  border-left: 1px solid #F2F2F2;
+  background-color: $header_elements_bg_color;
+  border-bottom-right-radius: 7px;
+  border-top-right-radius: 7px;
+}

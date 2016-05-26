@@ -1,5 +1,6 @@
 @import "../../../node_modules/react-toolbox/lib/_base";
 @import "../../../node_modules/react-toolbox/lib/dropdown/_config";
+@import "../_config";
 
 $title-font-size: 1.8 * $unit;
 
@@ -9,6 +10,40 @@ $button-size: 40px;
 // your build comes with React Toolbox's and we can't
 // ensure the order. You can either set a wrapper or target
 // React Toolbox data attributes to boost
-.bg{
-  background-color: #0074D9;
+.facet {
+  display: inline-block;
+  position: relative;
+  height: 40px;
+}
+
+.hidden{
+  display: none;
+}
+
+.visible{
+  display: block;
+}
+
+.facetButton {
+  height: 40px;
+  text-transform: capitalize;
+  color:$header_text_color;
+  font-weight: normal;
+  font-size:12px;
+}
+
+.facetNodes {
+  position: absolute;
+  top:100%;
+  left:0;
+  width: 100%;
+  background: $header_elements_bg_color;
+  font-size:12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facetNode {
+  padding: 5px 10px;
 }

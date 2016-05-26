@@ -1,5 +1,6 @@
 @import "../../../node_modules/react-toolbox/lib/_base";
 @import "../../../node_modules/react-toolbox/lib/app_bar/_config";
+@import "../_config";
 
 .appbar {
   background-color: transparent;
@@ -21,4 +22,9 @@
   display: table-cell;
   margin: 0 auto;
   padding-right: 20px;
+}
+
+.basketIcon{
+  color: $header_text_color;
+  background-color: $header_elements_bg_color;
 }
