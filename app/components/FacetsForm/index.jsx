@@ -4,6 +4,8 @@ import Facet from '../Facet/index.jsx'
 
 import style from './style';
 
+import data from './data'
+
 
 class FacetsForm extends React.Component {
     constructor(props) {
@@ -24,7 +26,7 @@ class FacetsForm extends React.Component {
 
         var facets = ['Category', 'Brand', 'Size', 'Price'].map(function(facetName) {
             return (
-                <Facet label={facetName} onOpen={onOpen} />
+                <Facet label={facetName} onOpen={onOpen} key={facetName} data={data[facetName]} />
             );
         });
 

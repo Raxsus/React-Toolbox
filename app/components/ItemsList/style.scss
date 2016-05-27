@@ -1,0 +1,7 @@
+@import "~react-toolbox/lib/commons";
+@import "~react-toolbox/lib/app_bar/_config";
+
+.content {
+  padding: $unit;
+  margin-top: $appbar-height;
+}

@@ -29,18 +29,26 @@ class Facet extends React.Component {
         this.setState({class: style.visible, isOpen: true});
     };
 
-    render () {
+    buttonClass = () =>{
+        return style.facetButton +  (this.state.isOpen ? (' ' + style.selected) : '');
+    }
 
-        var facetNodes = Array.from(new Array(3), (x,i) => i).map(function(comment) {
+    render () {
+        let list = [];
+        for (let i in this.props.data) {
+            list.push({name: i, count: this.props.data[i]});
+        }
+
+        var facetNodes = list.map(function(node) {
             return (
-                <li className={style.facetNode}>Cat - {comment}</li>
+                <li className={style.facetNode} key={node.name}>{node.name} - {node.count}</li>
             );
         });
 
         return (
         <div className={style.facet}>
 
-            <Button label={this.props.label} onMouseUp={this.toggle} className={style.facetButton} />
+            <Button label={this.props.label} onMouseUp={this.toggle} className={this.buttonClass()} />
 
             <ul className={style.facetNodes + ' ' + this.state.class }>
                 {facetNodes}
