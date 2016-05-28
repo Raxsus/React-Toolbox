@@ -28,7 +28,7 @@ $button-size: 40px;
   height: 40px;
   line-height: 40px;
   text-transform: capitalize;
-  color:$header_text_color;
+  color:$text_color_light;
   font-weight: normal;
   font-size:12px;
   border-radius: 0;
@@ -36,8 +36,9 @@ $button-size: 40px;
   border-bottom: 3px solid transparent;
 }
 
-.selected{
+.facetButton.selected{
   border-bottom: 3px solid #212121;
+  color:$text_color_dark;
 }
 
 .facetNodes {
@@ -48,16 +49,25 @@ $button-size: 40px;
   height:400px;
   overflow: auto;
   background: $header_elements_bg_color;
-  font-size:12px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
   -moz-box-shadow: 0 0 3px #999;
   -webkit-box-shadow: 0 0 3px #999;
   box-shadow: 0 0 3px #999;
 }
 
+.facetNodesContent {
+  padding: 0;
+}
 
-.facetNode {
-  padding: 5px 10px;
+.facetNode.selected {
+  background: #A5A5A5;
+}
+
+.facetNodeTitle {
+  color:$text_color_dark;
+  font-size: 12px;
+}
+
+.facetNodeLegend {
+  color:$text_color_light;
+  font-size: 11px;
 }

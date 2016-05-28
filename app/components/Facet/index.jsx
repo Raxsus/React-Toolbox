@@ -1,7 +1,40 @@
 import React from 'react';
 import Button from 'react-toolbox/lib/button';
+import { List, ListItem } from 'react-toolbox/lib/list';
 
 import style from './style';
+
+class ItemContent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {selected: false};
+    }
+
+    toggle = () => {
+        console.log('toggle - ' + this.props.data.name);
+        this.setState({selected: !this.state.selected});
+        console.log(this.state.selected);
+    };
+
+    getClassName = () => {
+        console.log('getClassName - ' + this.props.data.name);
+        return style.facetNode + (this.state.selected && style.selected)
+    }
+
+
+
+
+
+    render () {
+        return (
+            <div className={this.getClassName} onClick={this.toggle}>
+                <div className={style.facetNodeTitle}>{this.props.data.name}</div>
+                <div className={style.facetNodeLegend}>Jon Snow !!!!</div>
+            </div>
+
+        );
+    }
+}
 
 class Facet extends React.Component {
     constructor(props) {
@@ -41,7 +74,11 @@ class Facet extends React.Component {
 
         var facetNodes = list.map(function(node) {
             return (
-                <li className={style.facetNode} key={node.name}>{node.name} - {node.count}</li>
+                <ListItem className={style.facetNode}
+                          itemContent={<ItemContent data={node}/>}
+                    caption={node.name}
+                    legend=" 'Jon Snow' Osterman"
+                />
             );
         });
 
@@ -50,9 +87,11 @@ class Facet extends React.Component {
 
             <Button label={this.props.label} onMouseUp={this.toggle} className={this.buttonClass()} />
 
-            <ul className={style.facetNodes + ' ' + this.state.class }>
-                {facetNodes}
-            </ul>
+            <div className={style.facetNodes + ' ' + this.state.class }>
+                <List ripple selectable>
+                    {facetNodes}
+                </List>
+            </div>
 
         </div>
         );
