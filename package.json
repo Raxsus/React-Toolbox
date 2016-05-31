@@ -57,10 +57,12 @@
     "toolbox-loader": "0.0.3",
     "webpack": "1.13.0",
     "webpack-dev-middleware": "1.6.1",
+    "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "2.10.0"
   },
   "scripts": {
-    "start": "node ./server",
+    "start1": "node ./server",
+    "start": "webpack-dev-server --content-base www --port 3030 --inline --hot",
     "build": "cross-env NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config ./webpack.config",
     "deploy": "gh-pages -d build"
   },
