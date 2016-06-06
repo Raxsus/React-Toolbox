@@ -1,18 +1,20 @@
 import { connect } from 'react-redux';
-import Facet from '../components/Facet';
+import {Facet} from '../components/Facet';
 import { openFacetList } from '../actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
         // TODO: use selectors (take from sagas and move to another place)
-        items: state.searchCategories
+        item: state.searchCategories.items.find(i => i.name == ownProps.label),
+        isOpen: state.searchFacets.current == ownProps.label,
+        id: ownProps.label
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClick: (value) => {
-            dispatch(openFacetList(value));
+        onClick: (id) => {
+            dispatch(openFacetList(id));
         }
     }
 }

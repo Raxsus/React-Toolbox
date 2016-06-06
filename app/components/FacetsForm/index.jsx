@@ -42,7 +42,7 @@
 
 import React from 'react';
 
-import Facet from '../Facet/index.jsx'
+import {SearchFacet} from '../../containers'
 
 import style from './style';
 
@@ -51,7 +51,7 @@ export const FacetsForm = ({ items }) => {
         <div className={style.facetsForm}>
             {items.map(function(item) {
             return (
-                <Facet label={item.name} key={item.name} data={item.facets} />
+                <SearchFacet label={item.name} key={item.name} data={item.facets} />
             );
          })}
 

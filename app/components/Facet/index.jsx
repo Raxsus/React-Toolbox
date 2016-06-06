@@ -11,15 +11,12 @@ class ItemContent extends React.Component {
     }
 
     toggle = () => {
-        console.log('toggle - ' + this.props.data.name);
         this.setState({selected: !this.state.selected});
-        console.log(this.state.selected);
     };
 
     getClassName = () => {
-        console.log('getClassName - ' + this.props.data.name);
         return style.facetNode + (this.state.selected && style.selected)
-    }
+    };
 
 
 
@@ -35,71 +32,113 @@ class ItemContent extends React.Component {
         );
     }
 }
+//
+//
+//
+//
+// class Facet extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {class: style.hidden, isOpen: false};
+//     }
+//
+//     toggle = () => {
+//         if(this.state.isOpen){
+//             this.close();
+//         } else{
+//             this.open();
+//         }
+//
+//     };
+//
+//     close = () => {
+//         this.setState({class: style.hidden, isOpen: false});
+//     };
+//
+//     open = () => {
+//         if (this.props.onOpen){
+//             this.props.onOpen(this);
+//         }
+//         this.setState({class: style.visible, isOpen: true});
+//     };
+//
+//     buttonClass = () =>{
+//         return style.facetButton +  (this.state.isOpen ? (' ' + style.selected) : '');
+//     }
+//
+//     render () {
+//         let list = [];
+//         for (let i in this.props.data) {
+//             list.push({name: i, count: this.props.data[i]});
+//         }
+//
+//         var facetNodes = list.map(function(node) {
+//             return (
+//                 <ListItem className={style.facetNode}
+//                           itemContent={<ItemContent data={node}/>}
+//                     caption={node.name}
+//                     legend=" 'Jon Snow' Osterman"
+//                     key={node.name}
+//                 />
+//             );
+//         });
+//
+//         return (
+//                 <div className={style.facet}>
+//
+//                     <Button label={item.name} onMouseUp={onClick} className={this.buttonClass()} />
+//
+//                     <div className={style.facetNodes + ' ' + this.state.class }>
+//                         <List ripple selectable>
+//                             {facetNodes}
+//                         </List>
+//                     </div>
+//
+//                 </div>
+//         );
+//     }
+// }
+//
+// export default Facet;
 
+export const Facet = ({ onClick, item, isOpen, id }) => {
 
+    const buttonClass = () =>{
+        return `${style.facetButton} ${(isOpen ? (' ' + style.selected) : '')}`;
+    };
 
+    const contentClass = () =>{
+        return `${style.facetNodes} ${(isOpen ? style.visible : style.hidden)}`;
+    };
 
-class Facet extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {class: style.hidden, isOpen: false};
+    let list = [];
+    for (let i in item) {
+        list.push({name: i});
     }
 
-    toggle = () => {
-        if(this.state.isOpen){
-            this.close();
-        } else{
-            this.open();
-        }
-
-    };
-
-    close = () => {
-        this.setState({class: style.hidden, isOpen: false});
-    };
-
-    open = () => {
-        if (this.props.onOpen){
-            this.props.onOpen(this);
-        }
-        this.setState({class: style.visible, isOpen: true});
-    };
-
-    buttonClass = () =>{
-        return style.facetButton +  (this.state.isOpen ? (' ' + style.selected) : '');
-    }
-
-    render () {
-        let list = [];
-        for (let i in this.props.data) {
-            list.push({name: i, count: this.props.data[i]});
-        }
-
-        var facetNodes = list.map(function(node) {
-            return (
-                <ListItem className={style.facetNode}
-                          itemContent={<ItemContent data={node}/>}
-                    caption={node.name}
-                    legend=" 'Jon Snow' Osterman"
-                    key={node.name}
-                />
-            );
-        });
-
+    var facetNodes = list.map(function(node) {
         return (
+            <ListItem className={style.facetNode}
+                      itemContent={<ItemContent data={node}/>}
+                caption={node.name}
+                legend=" 'Jon Snow' Osterman"
+                key={node.name}
+            />
+        );
+    });
+
+    return (
         <div className={style.facet}>
 
-            <Button label={this.props.label} onMouseUp={this.toggle} className={this.buttonClass()} />
 
-            <div className={style.facetNodes + ' ' + this.state.class }>
+            <Button label={item.name} onMouseUp={() => onClick(id)} className={buttonClass()} />
+
+            <div className={contentClass()}>
                 <List ripple selectable>
                     {facetNodes}
                 </List>
             </div>
 
         </div>
-        );
-    }
-}
-
-export default Facet;
+    )
+};

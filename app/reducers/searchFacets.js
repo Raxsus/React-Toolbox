@@ -4,16 +4,13 @@ import {
 
 
 // TODO: check searchData and save current category in the another place of store.
-export const searchFacet = (state = {
-    label: '',
-    items: [],
-    isOpend: false
+export const searchFacets = (state = {
+    current: null
 }, action) => {
     switch (action.type) {
         case OPEN_FACET_LIST:
-            console.log(action.current, state.label);
             return Object.assign({}, state, {
-                isOpend: action.current == state.label
+                current: action.id == state.current ? null : action.id
             });
         default:
             return state;

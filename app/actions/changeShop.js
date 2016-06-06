@@ -18,9 +18,9 @@ export function changeCategory(value, category) {
     }
 }
 
-export function openFacetList(current) {
+export function openFacetList(id) {
     return {
         type: OPEN_FACET_LIST,
-        current
+        id
     }
 }

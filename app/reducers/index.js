@@ -3,7 +3,7 @@ import { searchData } from './searchData';
 import { searchItems } from './searchItems';
 import { searchCategories } from './searchCategories';
 import { searchCredentials } from './searchCredentials';
-import { searchFacet } from './searchFacet';
+import { searchFacets } from './searchFacets';
 
 
 const shopApp = combineReducers({
@@ -11,7 +11,7 @@ const shopApp = combineReducers({
     searchData,
     searchCategories,
     searchItems,
-    searchFacet
+    searchFacets
 })
 
 export default shopApp
