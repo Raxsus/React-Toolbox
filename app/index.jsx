@@ -1,24 +1,36 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Header from './components/Header/index';
 import ItemsList from './components/ItemsList/index';
 
-class Shop extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
-    render () {
-        return (
-            <div>
-                <Header />
-                <ItemsList />
-            </div>
-        );
-    }
-}
+import { initSearch } from './actions';
+import shopApp from './reducers';
+import rootSaga from './sagas';
+
+
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(shopApp, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
+
+window.__store = store;
+store.dispatch(initSearch());
 
 ReactDOM.render((
-    <Shop />
+    <Provider store={store}>
+        <Header />
+    </Provider>
+
 ), document.getElementById('app'));
+
+// ReactDOM.render((
+//     <div store="store">
+//         <Header />
+//         <ItemsList />
+//     </div>
+// ), document.getElementById('app'));

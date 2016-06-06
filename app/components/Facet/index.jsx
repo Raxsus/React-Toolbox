@@ -36,6 +36,9 @@ class ItemContent extends React.Component {
     }
 }
 
+
+
+
 class Facet extends React.Component {
     constructor(props) {
         super(props);
@@ -78,6 +81,7 @@ class Facet extends React.Component {
                           itemContent={<ItemContent data={node}/>}
                     caption={node.name}
                     legend=" 'Jon Snow' Osterman"
+                    key={node.name}
                 />
             );
         });

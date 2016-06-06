@@ -1,14 +1,13 @@
 import React from 'react';
 
-import SearchField from '../SearchField/index.jsx'
-import FacetsForm from '../FacetsForm/index.jsx'
+import {SearchInput, SearchFacets} from '../../containers/index'
 
 import style from './style';
 
 const Header = () => (
     <div className={style.searchForm}>
-      <SearchField />
-      <FacetsForm />
+      <SearchInput />
+      <SearchFacets />
     </div>
 );
 

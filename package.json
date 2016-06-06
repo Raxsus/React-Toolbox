@@ -66,5 +66,9 @@
     "build": "cross-env NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config ./webpack.config",
     "deploy": "gh-pages -d build"
   },
-  "repository": "github:react-toolbox/react-toolbox-example"
+  "repository": "github:react-toolbox/react-toolbox-example",
+  "dependencies": {
+    "redux": "^3.5.2",
+    "redux-saga": "^0.10.4"
+  }
 }
