@@ -15,9 +15,9 @@ export const searchFacets = (state = {
                 current: action.id == state.current ? null : action.id
             });
         case SELECT_FACET_NODE:
-            //let facetNode =
+            let facetNode = action.name;
             return Object.assign({}, state, {
-                facets: {}//state.facets action.facet action.name
+                facets: {}//state.facets action.facet
             });
         default:
             return state;
