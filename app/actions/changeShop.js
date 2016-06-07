@@ -26,10 +26,10 @@ export function openFacetList(id) {
     }
 }
 
-export function selectFacetNode(facet, value) {
+export function selectFacetNode(facetName, nodeName) {
     return {
         type: SELECT_FACET_NODE,
-        facet,
-        value
+        facetName,
+        nodeName
     }
 }

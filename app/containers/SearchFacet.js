@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import {Facet} from '../components/Facet';
-import { openFacetList } from '../actions';
+import { openFacetList, selectFacetNode } from '../actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -15,9 +15,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onClick: (id) => {
             dispatch(openFacetList(id));
+        },
+        onNodeClick: (facetName, nodeName) => {
+            dispatch(selectFacetNode(facetName, nodeName));
         }
     }
-}
+};
 
 export const SearchFacet = connect(
     mapStateToProps,

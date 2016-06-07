@@ -2,16 +2,22 @@ import React from 'react';
 
 import style from './style';
 
-export const FacetNode = ({ onClick, node, selected }) => {
+/*
+* props:
+* * facetName
+* * nodeName
+* */
+
+export const FacetNode = ({ selected, nodeName, facetName }) => {
 
     const nodeClass = () =>{
         return `${style.facetNode} ${(selected ? (' ' + style.selected) : '')}`;
     };
 
     return (
-        <div className={nodeClass()} onmouseup={() => onClick(node.facet, node.name)}>
-            <div className={style.facetNodeTitle}>{node.name}</div>
-            <div className={style.facetNodeLegend}>{node.facet} Jon Snow !!!!</div>
+        <div className={nodeClass()}>
+            <div className={style.facetNodeTitle}>{nodeName}</div>
+            <div className={style.facetNodeLegend}>{facetName} Jon Snow !!!!</div>
         </div>
     )
 };

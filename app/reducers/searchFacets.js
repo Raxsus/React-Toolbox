@@ -15,10 +15,17 @@ export const searchFacets = (state = {
                 current: action.id == state.current ? null : action.id
             });
         case SELECT_FACET_NODE:
-            let facetNode = action.name;
-            return Object.assign({}, state, {
-                facets: {}//state.facets action.facet
-            });
+            let facet = {};
+            let facetNodes = state.facets[action.facetName] || [];
+            if (facetNodes.find(node=>node==action.nodeName)){
+                facet[action.facetName] = facetNodes.filter( i => i != action.nodeName);
+            } else{
+                facet[action.facetName] = [action.nodeName, ...facetNodes];
+            }
+
+            let facets = {facets: Object.assign({}, state.facets, facet)};
+
+            return Object.assign({}, state, facets);
         default:
             return state;
     }
