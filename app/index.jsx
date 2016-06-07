@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import { initSearch } from './actions';
+import { initSearch, changeValue } from './actions';
 import shopApp from './reducers';
 import rootSaga from './sagas';
 
@@ -20,6 +20,7 @@ sagaMiddleware.run(rootSaga);
 
 window.__store = store;
 store.dispatch(initSearch());
+store.dispatch(changeValue());
 
 ReactDOM.render((
     <Provider store={store}>
