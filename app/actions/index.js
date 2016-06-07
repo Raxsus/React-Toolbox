@@ -25,7 +25,9 @@ export {
     CHANGE_VALUE,
     CHANGE_CATEGORY,
     OPEN_FACET_LIST,
+    SELECT_FACET_NODE,
     changeValue,
     changeCategory,
-    openFacetList
+    openFacetList,
+    selectFacetNode
 } from './changeShop';

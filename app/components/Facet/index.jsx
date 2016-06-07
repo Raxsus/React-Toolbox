@@ -26,7 +26,7 @@ class ItemContent extends React.Component {
         return (
             <div className={this.getClassName} onClick={this.toggle}>
                 <div className={style.facetNodeTitle}>{this.props.data.name}</div>
-                <div className={style.facetNodeLegend}>Jon Snow !!!!</div>
+                <div className={style.facetNodeLegend}>{this.props.facet} Jon Snow !!!!</div>
             </div>
 
         );
@@ -111,32 +111,31 @@ export const Facet = ({ onClick, item, isOpen, id }) => {
         return `${style.facetNodes} ${(isOpen ? style.visible : style.hidden)}`;
     };
 
+    // parse list of facet nodes
     let list = [];
-    for (let i in item) {
+    for (let i in item.facets) {
         list.push({name: i});
     }
-
-    var facetNodes = list.map(function(node) {
-        return (
-            <ListItem className={style.facetNode}
-                      itemContent={<ItemContent data={node}/>}
-                caption={node.name}
-                legend=" 'Jon Snow' Osterman"
-                key={node.name}
-            />
-        );
-    });
 
     return (
         <div className={style.facet}>
 
-
             <Button label={item.name} onMouseUp={() => onClick(id)} className={buttonClass()} />
 
             <div className={contentClass()}>
+
                 <List ripple selectable>
-                    {facetNodes}
+
+                    {list.map( node =>
+                        <ListItem className={style.facetNode}
+                                  itemContent={<ItemContent data={node} facet={id}/>}
+                                  caption={node.name}
+                                  legend=" 'Jon Snow' Osterman"
+                                  key={node.name}/>
+                    )}
+
                 </List>
+
             </div>
 
         </div>

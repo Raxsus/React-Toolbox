@@ -1,6 +1,7 @@
 export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
 export const OPEN_FACET_LIST = 'OPEN_FACET_LIST';
+export const SELECT_FACET_NODE = 'SELECT_FACET_NODE';
 
 
 export function changeValue(value) {
@@ -22,5 +23,13 @@ export function openFacetList(id) {
     return {
         type: OPEN_FACET_LIST,
         id
+    }
+}
+
+export function selectFacetNode(facet, value) {
+    return {
+        type: SELECT_FACET_NODE,
+        facet,
+        value
     }
 }
