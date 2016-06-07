@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Header from './components/Header/index';
-import ItemsList from './components/ItemsList/index';
+import {SearchItemsList} from './containers';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -23,9 +23,11 @@ store.dispatch(initSearch());
 
 ReactDOM.render((
     <Provider store={store}>
-        <Header />
+        <div>
+            <Header />
+            <SearchItemsList />
+        </div>
     </Provider>
-
 ), document.getElementById('app'));
 
 // ReactDOM.render((
